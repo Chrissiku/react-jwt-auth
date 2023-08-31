@@ -3,6 +3,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignOut from "./SignOut";
 import { AdminComponent, UserComponent } from "./AdminComponent";
+import BASE_URL from "./constants";
 
 function AuthenticatedApp() {
   const [user, setUser] = useState(null);
@@ -10,7 +11,7 @@ function AuthenticatedApp() {
   // Fetch user data after successful sign-in
   useEffect(() => {
     const fetchUserData = async () => {
-      const response = await fetch("http://localhost:3000/current_user", {
+      const response = await fetch(`${BASE_URL}/current_user`, {
         headers: {
           Authorization: `${localStorage.getItem("authToken")}`,
         },

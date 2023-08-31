@@ -1,6 +1,8 @@
+import BASE_URL from "./constants";
+
 function SignOut() {
   const handleSignOut = async () => {
-    const response = await fetch("http://127.0.0.1:3000/users/sign_out", {
+    const response = await fetch(`${BASE_URL}/users/sign_out`, {
       method: "DELETE",
       headers: {
         Authorization: `${localStorage.getItem("authToken")}`,
